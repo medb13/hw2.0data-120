@@ -52,30 +52,23 @@ print("-------- Problem 4 --------")
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
 
-# Some extra code to run your functions, don't worry about it!
-def main():
-  password_helper()
-
-if __name__ == "__main__":
-    main()
-
-def is_valid_password():
+# checks if password is strong
+def is_valid_password(password):
     """
-    function to check if password is strong, meaning it must:
-  - Be at least 8 characters long
-  - Include at least one uppercase letter
-  - Include at least one lowercase letter
-  - Include at least one number
-"""
+    checks if password meets requirements
+    """
+    
+    # check length
     if len(password) < 8:
         print("your password must be at least 8 characters long.")
         return False
-    # flags to track requirements
+    
+    # flags
     has_upper = False
     has_lower = False
     has_number = False
     
-    # loop through each character
+    # check each character
     for char in password:
         if char.isupper():
             has_upper = True
@@ -83,8 +76,8 @@ def is_valid_password():
             has_lower = True
         elif char.isdigit():
             has_number = True
-            
-    # checks through all requirements individiually
+    
+    # check requirements
     if not has_upper:
         print("your password is missing an uppercase letter.")
         return False
@@ -96,27 +89,33 @@ def is_valid_password():
     if not has_number:
         print("your password is missing a number.")
         return False
-     # if all checks pass, password is strong
+    
     return True
 
-    def password_helper():
-    
+
+# asks user for passwords
+def password_helper():
     """
-    asks the user to enter passwords until they type 'quit'
-    checks if each password is valid and prints the result
+    keeps asking for passwords until user types quit
     """
     
-    #  asks the user for passwords continuously
-        while True:
-            password = input("enter a password (or type quit to stop): ")
+    while True:
+        password = input("enter a password (or type quit to stop): ")
         
-        # if user inputs 'quit', break out of the loop
         if password == "quit":
             break
         
-        # check if password is valid
         if is_valid_password(password):
             print(password + " is valid.")
         else:
             print(password + " is NOT valid.")
-    
+
+
+
+# Some extra code to run your functions, don't worry about it!
+
+def main():
+    password_helper()
+
+if __name__ == "__main__":
+    main()
