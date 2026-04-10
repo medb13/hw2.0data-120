@@ -101,9 +101,10 @@ def is_valid_password():
 
     def password_helper():
     
-    #asks the user to enter passwords until they type 'quit'
-    #checks if each password is valid and prints the result
-    
+    """
+    asks the user to enter passwords until they type 'quit'
+    checks if each password is valid and prints the result
+    """
     
     #  asks the user for passwords continuously
     while True:
