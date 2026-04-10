@@ -60,11 +60,13 @@ if __name__ == "__main__":
     main()
 
 def is_valid_password():
-    # function to check if password is strong, meaning it must:
-#    - Be at least 8 characters long
-#    - Include at least one uppercase letter
-#    - Include at least one lowercase letter
-#    - Include at least one number
+    """
+    function to check if password is strong, meaning it must:
+  - Be at least 8 characters long
+  - Include at least one uppercase letter
+  - Include at least one lowercase letter
+  - Include at least one number
+"""
     if len(password) < 8:
         print("your password must be at least 8 characters long.")
         return False
