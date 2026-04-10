@@ -136,6 +136,130 @@ ADDITIONAL NOTES
 #       carriage returns if you're having issues with reading input from files!
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
+print("-------- Problem 5 --------")
+
+# pizza order
+def order_pizza():
+    """
+    asks user for pizza size and toppings and returns total price
+    """
+    
+    pizza_prices = {"small": 5, "medium": 8, "large": 10}
+    
+    topping_prices = {
+        "corn": 0.50, "onions": 0.50, "bell peppers": 0.50, "olives": 0.50,
+        "spinach": 1.00, "mushrooms": 1.00, "anchovies": 1.00, "pineapple": 1.00,
+        "pepperoni": 1.50, "sausage": 1.50, "chicken": 1.50, "ham": 1.50
+    }
+    
+    size = input("enter pizza size: ").lower()
+    total = pizza_prices[size]
+    
+    toppings = input("enter toppings: ").lower()
+    toppings_list = toppings.split(", ")
+    toppings_set = set(toppings_list)  # removes duplicates
+    
+    for topping in toppings_set:
+        total += topping_prices[topping]
+    
+    print(f"You ordered a {size} pizza with {len(toppings_set)} topping[s]. Your total is ${total:.2f}.")
+    return total
+
+
+# pancake order
+def order_pancake():
+    """
+    asks for pancake count and toppings, then returns price
+    """
+    
+    topping_prices = {
+        "maple syrup": 0.50, "whipped cream": 0.50, "butter": 0.50, "chocolate drizzle": 0.50,
+        "blueberries": 1.00, "chocolate chips": 1.00, "pineapple chunks": 1.00, "banana slices": 1.00
+    }
+    
+    count = int(input("how many pancakes: "))
+    total = count * 2  # base price
+    
+    toppings = input("enter toppings: ").lower()
+    toppings_list = toppings.split(", ")
+    toppings_set = set(toppings_list)
+    
+    for topping in toppings_set:
+        total += topping_prices[topping]
+    
+    print(f"You ordered {count} pancakes with {len(toppings_set)} topping[s]. Your total is ${total:.2f}.")
+    return total
+
+
+# sorbet order
+def order_pineapple_sorbet():
+    """
+    asks for scoops, toppings, and pineapple option
+    """
+    
+    topping_prices = {
+        "whipped cream": 0.50, "chocolate drizzle": 0.50, "caramel drizzle": 0.50,
+        "sprinkles": 1.00, "gummy bears": 1.00, "cherry": 1.00, "pineapple chunks": 1.00
+    }
+    
+    scoops = int(input("how many scoops: "))
+    total = scoops * 1.50
+    
+    toppings = input("enter toppings: ").lower()
+    toppings_list = toppings.split(", ")
+    toppings_set = set(toppings_list)
+    
+    for topping in toppings_set:
+        total += topping_prices[topping]
+    
+    # ask if they want it in a pineapple
+    choice = input("serve in a pineapple? (yes/no): ").lower()
+    if choice == "yes":
+        total += 4
+    
+    print(f"You ordered {scoops} scoops with {len(toppings_set)} topping[s]. Your total is ${total:.2f}.")
+    return total
+
+
+# main menu
+def menu():
+    """
+    lets user order multiple items and adds everything up
+    """
+    
+    total_price = 0
+    items = int(input("how many items do you want: "))
+    
+    for i in range(items):
+        
+        while True:
+            print("1. pizza")
+            print("2. pancake")
+            print("3. pineapple sorbet")
+            
+            choice = input("choose: ")
+            
+            if choice == "1":
+                total_price += order_pizza()
+                break
+            elif choice == "2":
+                total_price += order_pancake()
+                break
+            elif choice == "3":
+                total_price += order_pineapple_sorbet()
+                break
+            else:
+                print("not a valid option, try again")
+    
+    print(f"You ordered {items} item[s]. Your total is ${total_price:.2f}.")
+
+
+def main():
+    menu()
+
+if __name__ == "__main__":
+    main()
+
 
 # Some extra code to run your functions, don't worry about it!
 def main():
