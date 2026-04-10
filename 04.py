@@ -94,6 +94,26 @@ def is_valid_password():
     if not has_number:
         print("your password is missing a number.")
         return False
-    
-    # if all checks pass, password is strong
+     # if all checks pass, password is strong
     return True
+
+    def password_helper():
+    
+    #asks the user to enter passwords until they type 'quit'
+    #checks if each password is valid and prints the result
+    
+    
+    #  asks the user for passwords continuously
+    while True:
+        password = input("enter a password (or type quit to stop): ")
+        
+        # if user inputs 'quit', break out of the loop
+        if password == "quit":
+            break
+        
+        # check if password is valid
+        if is_valid_password(password):
+            print(password + " is valid.")
+        else:
+            print(password + " is NOT valid.")
+    
