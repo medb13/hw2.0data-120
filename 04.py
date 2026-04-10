@@ -107,8 +107,8 @@ def is_valid_password():
     """
     
     #  asks the user for passwords continuously
-    while True:
-        password = input("enter a password (or type quit to stop): ")
+        while True:
+            password = input("enter a password (or type quit to stop): ")
         
         # if user inputs 'quit', break out of the loop
         if password == "quit":
