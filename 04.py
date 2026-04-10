@@ -58,3 +58,42 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def is_valid_password():
+    # function to check if password is strong, meaning it must:
+#    - Be at least 8 characters long
+#    - Include at least one uppercase letter
+#    - Include at least one lowercase letter
+#    - Include at least one number
+    if len(password) < 8:
+        print("your password must be at least 8 characters long.")
+        return False
+    # flags to track requirements
+    has_upper = False
+    has_lower = False
+    has_number = False
+    
+    # loop through each character
+    for char in password:
+        if char.isupper():
+            has_upper = True
+        elif char.islower():
+            has_lower = True
+        elif char.isdigit():
+            has_number = True
+            
+    # checks through all requirements individiually
+    if not has_upper:
+        print("your password is missing an uppercase letter.")
+        return False
+    
+    if not has_lower:
+        print("your password is missing a lowercase letter.")
+        return False
+    
+    if not has_number:
+        print("your password is missing a number.")
+        return False
+    
+    # if all checks pass, password is strong
+    return True
