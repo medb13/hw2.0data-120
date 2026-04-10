@@ -36,3 +36,23 @@ print("-------- Problem 2 --------")
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
 
+# keep asking the user for input
+while True:
+    user_input = input("enter something (or type 'quit' to stop): ")
+    
+    # stop the loop if user types quit
+    if user_input == "quit":
+        break
+    
+    # make everything lowercase so capitalization doesn't matter
+    text = user_input.lower()
+    
+    # remove spaces
+    text = text.replace(" ", "")
+    
+    # check if the string is the same forward and backward
+    if text == text[::-1]:
+        print(user_input + " is a palindrome.")
+    else:
+        print(user_input + " is NOT a palindrome.")
+
