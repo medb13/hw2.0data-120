@@ -31,3 +31,40 @@ print("-------- Problem 3 --------")
 ### CODE GOES HERE, MAKE SURE TO COMMENT!###
 
 
+# dictionaries for the pizza price by size and additional toppings
+pizza_prices = {
+    "small": 5,
+    "medium": 8,
+    "large": 10
+}
+
+topping_prices = {
+    "corn": 0.50, "onions": 0.50, "bell peppers": 0.50, "olives": 0.50,
+    "spinach": 1.00, "mushrooms": 1.00, "anchovies": 1.00, "pineapple": 1.00,
+    "pepperoni": 1.50, "sausage": 1.50, "chicken": 1.50, "ham": 1.50
+}
+# asks user for pizza size first, then toppings, storing both inputs
+size = input("enter pizza size: ").lower()
+
+toppings = input("enter pizza toppings : ").lower()
+
+# sets total for later use with for loop
+total = pizza_prices[size]
+
+# creates a list out of the toppinbgs input
+toppings_list = toppings.split(", ")
+
+#creates a set to remove duplicates from the list
+toppings_set = set(toppings_list)
+
+#adds up the price of the toppings
+for topping in toppings_set:
+    total += topping_prices[topping]
+
+# for formatting in the outp[ut
+toppings_count = len(toppings_set)
+
+print(f" You ordered a {size} pizza with {toppings_count} topping[s]. Your total is ${total:.2f}.")
+      
+
+
